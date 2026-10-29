@@ -1,17 +1,36 @@
-# Portfólio — Thais Arruda
+# Thais Arruda | Portfólio Profissional
 
-Site estático em HTML, CSS e JavaScript, com layout responsivo e alternância entre português e inglês.
+Farmácia • Saúde • Dados • Tecnologia • Inteligência Artificial
 
-## Como visualizar
-1. Baixe e extraia o arquivo ZIP.
-2. Abra `index.html` em um navegador.
-3. Para publicar gratuitamente, crie um repositório no GitHub (por exemplo, `thaislarruda.github.io`), envie o `index.html` e ative o GitHub Pages nas configurações do repositório.
+## Sobre o projeto
 
-## Próximos ajustes
-- Foto profissional inserida em `assets/foto-thais.png`.
-- Atualizar os cards com links diretos para os repositórios específicos.
-- Revisar competências e níveis técnicos com base nos certificados.
-- Revisar textos e posicionamento junto com o perfil do LinkedIn.
+Este repositório contém meu portfólio profissional, desenvolvido para apresentar minha trajetória na área da Saúde e minha transição para Tecnologia, Dados e Inteligência Artificial.
 
-## Observações
-Os projetos são descritos de forma conservadora, sem inventar resultados quantitativos ou afirmar experiência profissional em tecnologias ainda em aprendizagem. Os links dos projetos apontam temporariamente para o perfil geral do GitHub.
+Sou farmacêutica, com experiência em Farmácia Hospitalar e Clínica, qualificação de processos assistenciais, segurança do paciente, monitoramento de indicadores e melhoria contínua. Atualmente, amplio minhas competências em programação, análise de dados, automação e desenvolvimento de soluções tecnológicas.
+
+Meu objetivo é conectar conhecimento de domínio e tecnologia para explorar soluções aplicadas à saúde, à gestão hospitalar e às políticas públicas de saúde.
+
+## Projetos em destaque
+
+- **Dashboards e indicadores hospitalares:** visualização de indicadores e acompanhamento de oportunidades de melhoria.
+- **Controle de antimicrobianos e farmacoeconomia:** organização de informações de estoque, custos e intervenções farmacêuticas.
+- **Automação de processos:** desenvolvimento de iniciativas para simplificar tarefas e rotinas operacionais.
+- **Inteligência Artificial aplicada à Saúde:** estudos e protótipos envolvendo IA generativa, automação e assistentes digitais.
+
+## Tecnologias e áreas de estudo
+
+Python, análise de dados, SQL, desenvolvimento de sistemas, automação de processos e Inteligência Artificial.
+
+## Formação e trajetória
+
+Minha formação em Farmácia e minha experiência profissional em saúde fundamentam os projetos que desenvolvo enquanto avanço na formação tecnológica.
+
+## Contato
+
+- **LinkedIn:** https://www.linkedin.com/in/thaisdelimaarruda/
+- **GitHub:** https://github.com/thaislarruda
+- **E-mail:** tl-arruda@uol.com.br
+
+---
+
+Este portfólio está em evolução contínua, acompanhando o desenvolvimento de novos projetos e competências.

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thais Arruda — Farmácia, Saúde, Dados, Tecnologia e Inteligência Artificial.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Thais Arruda | Saúde + Dados + Tecnologia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f9fc; --surface: #ffffff; --ink: #101827; --muted: #586579;
+      --navy: #0b1220; --navy-2: #111e32; --cyan: #3dd6d0; --blue: #4f8cff;
+      --line: #e1e8f0; --soft: #eaf8f8; --shadow: 0 18px 50px rgba(12, 28, 50, .09);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: var(--bg); font-family: Manrope, system-ui, sans-serif; line-height: 1.65; }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(11,18,32,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; color: white; font-weight: 800; letter-spacing: -.04em; font-size: 1.08rem; white-space: nowrap; }
+    .brand span { color: var(--cyan); }
+    .navlinks { display: flex; align-items: center; gap: 24px; }
+    .navlinks a { color: #d8e1ee; text-decoration: none; font-size: .88rem; font-weight: 600; }
+    .navlinks a:hover { color: var(--cyan); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .lang-btn, .menu-btn { border: 1px solid rgba(255,255,255,.25); color: white; background: transparent; border-radius: 999px; padding: 8px 12px; font: 700 .78rem Manrope, sans-serif; cursor: pointer; }
+    .menu-btn { display: none; }
+    .hero { overflow: hidden; color: white; background: radial-gradient(circle at 80% 15%, rgba(61,214,208,.16), transparent 28%), linear-gradient(125deg, var(--navy), #12243a 75%, #123b49); padding: 86px 0 82px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr .6fr; align-items: center; gap: 52px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--cyan); font: 500 .76rem "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 26px; height: 1px; background: currentColor; }
+    h1 { font-size: clamp(2.7rem, 6vw, 5.25rem); line-height: 1.04; letter-spacing: -.065em; margin: 20px 0 22px; max-width: 760px; }
+    h1 .accent { color: var(--cyan); }
+    .hero-copy { color: #cbd7e5; max-width: 690px; font-size: 1.06rem; margin: 0 0 30px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; text-decoration: none; border-radius: 999px; padding: 13px 19px; font-weight: 800; font-size: .88rem; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--cyan); color: var(--navy); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.28); color: white; }
+    .profile-card { justify-self: end; width: min(100%, 300px); aspect-ratio: .88; border: 1px solid rgba(255,255,255,.18); border-radius: 28px; padding: 14px; background: rgba(255,255,255,.06); transform: rotate(2deg); box-shadow: 0 28px 80px rgba(0,0,0,.2); }
+    .profile-photo { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 35%; border-radius: 19px; }\n    .photo-placeholder { height: 100%; border-radius: 19px; background: linear-gradient(145deg, #19334b, #0c1928); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; border: 1px dashed rgba(61,214,208,.48); }
+    .monogram { width: 100px; height: 100px; border-radius: 50%; display: grid; place-items: center; color: var(--navy); background: var(--cyan); font-size: 2rem; font-weight: 800; letter-spacing: -.08em; margin-bottom: 18px; }
+    .photo-placeholder strong { color: white; font-size: 1.05rem; }
+    .photo-placeholder small { color: #a9bdcf; margin-top: 8px; font-size: .78rem; }
+    section { padding: 82px 0; }
+    .section-head { max-width: 700px; margin-bottom: 34px; }
+    .section-kicker { color: #087f87; font: 500 .76rem "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 9px 0 12px; font-size: clamp(2rem, 4vw, 3.15rem); letter-spacing: -.055em; line-height: 1.12; }
+    .section-intro { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 52px; align-items: start; }
+    .about-text p { color: var(--muted); margin-top: 0; }
+    .about-text strong { color: var(--ink); }
+    .principles { display: grid; gap: 12px; }
+    .principle { padding: 18px 20px; border: 1px solid var(--line); background: var(--surface); border-radius: 16px; display: flex; gap: 14px; align-items: flex-start; }
+    .principle .number { color: #087f87; font: 500 .78rem "DM Mono", monospace; padding-top: 3px; }
+    .principle strong { display: block; margin-bottom: 3px; }
+    .principle span { color: var(--muted); font-size: .88rem; }
+    .dark-section { background: var(--navy); color: white; }
+    .dark-section .section-intro { color: #b7c5d7; }
+    .dark-section .section-kicker { color: var(--cyan); }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .project-card { min-height: 290px; display: flex; flex-direction: column; padding: 26px; border-radius: var(--radius); background: var(--navy-2); border: 1px solid rgba(255,255,255,.1); transition: transform .2s, border-color .2s; }
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(61,214,208,.65); }
+    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 23px; }
+    .project-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; color: var(--cyan); background: rgba(61,214,208,.1); font-size: 1.25rem; font-weight: 800; }
+    .status { color: #a9dcd9; font: 500 .68rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+    .project-card h3 { margin: 0 0 10px; font-size: 1.25rem; letter-spacing: -.03em; }
+    .project-card p { color: #b7c5d7; font-size: .91rem; margin: 0 0 18px; }
+    .tags { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+    .tag { font: 400 .7rem "DM Mono", monospace; color: #d9e5f1; border: 1px solid rgba(255,255,255,.15); border-radius: 7px; padding: 5px 8px; }
+    .project-link { color: var(--cyan); font-size: .82rem; font-weight: 800; text-decoration: none; margin-top: 20px; align-self: flex-start; }
+    .project-link:hover { text-decoration: underline; }
+    .notice { color: #9eb0c5; font-size: .8rem; margin-top: 20px; }
+    .timeline { position: relative; max-width: 850px; margin-left: 6px; padding-left: 30px; border-left: 2px solid #cfe5e7; }
+    .timeline-item { position: relative; padding: 0 0 34px 6px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item:before { content: ""; position: absolute; left: -39px; top: 6px; width: 14px; height: 14px; border: 3px solid var(--bg); border-radius: 50%; background: #079ca3; box-shadow: 0 0 0 2px #079ca3; }
+    .timeline-label { color: #087f87; font: 500 .74rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .04em; }
+    .timeline-item h3 { margin: 6px 0; font-size: 1.13rem; }
+    .timeline-item p { color: var(--muted); margin: 0; max-width: 760px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .skill-box { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+    .skill-box h3 { margin: 0 0 8px; font-size: 1rem; }
+    .skill-box p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .contact { background: linear-gradient(125deg, #e8f9f8, #f7f9fc 70%); }
+    .contact-card { border-radius: 28px; padding: clamp(26px,5vw,52px); display: flex; align-items: center; justify-content: space-between; gap: 28px; background: white; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .contact-card h2 { font-size: clamp(1.8rem,4vw,2.7rem); }
+    .contact-card p { color: var(--muted); max-width: 570px; margin-bottom: 0; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; min-width: 180px; }
+    .contact-links a { text-decoration: none; font-weight: 800; font-size: .88rem; color: #087f87; }
+    footer { background: var(--navy); color: #9eafc3; padding: 23px 0; font-size: .78rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .mono { font-family: "DM Mono", monospace; }
+    [data-lang="en"] { display: none; }
+    body.english [data-lang="pt"] { display: none; }
+    body.english [data-lang="en"] { display: revert; }
+    @media (max-width: 820px) {
+      .navlinks { gap: 13px; }
+      .navlinks a { font-size: .78rem; }
+      .hero-grid { grid-template-columns: 1fr .55fr; gap: 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .skills-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-card { align-items: flex-start; flex-direction: column; }
+      .contact-links { flex-direction: row; flex-wrap: wrap; gap: 18px; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 30px, 1120px); }
+      .nav { min-height: 64px; flex-wrap: wrap; padding: 12px 0; }
+      .menu-btn { display: inline-flex; }
+      .navlinks { display: none; width: 100%; flex-direction: column; align-items: flex-start; padding: 8px 0 12px; }
+      .navlinks.open { display: flex; }
+      .navlinks a { font-size: .9rem; }
+      .hero { padding: 64px 0 58px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .profile-card { justify-self: start; width: 180px; aspect-ratio: 1; margin-top: 10px; }
+      .monogram { width: 60px; height: 60px; font-size: 1.4rem; margin-bottom: 10px; }
+      .photo-placeholder { padding: 12px; }
+      .photo-placeholder small { font-size: .68rem; }
+      section { padding: 62px 0; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 260px; }
+      .skills-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .skill-box { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio">THAIS<span>.</span>ARRUDA</a>
+      <nav class="navlinks" id="navlinks" aria-label="Navegação principal">
+        <a href="#sobre"><span data-lang="pt">Sobre</span><span data-lang="en">About</span></a>
+        <a href="#projetos"><span data-lang="pt">Projetos</span><span data-lang="en">Projects</span></a>
+        <a href="#trajetoria"><span data-lang="pt">Trajetória</span><span data-lang="en">Journey</span></a>
+        <a href="#competencias"><span data-lang="pt">Competências</span><span data-lang="en">Skills</span></a>\n        <a href="#formacao"><span data-lang="pt">Formação</span><span data-lang="en">Education</span></a>
+        <a href="#contato"><span data-lang="pt">Contato</span><span data-lang="en">Contact</span></a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-btn" id="langToggle" type="button" aria-label="Switch language">EN / PT</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span data-lang="pt">Saúde • Dados • Tecnologia</span><span data-lang="en">Healthcare • Data • Technology</span></div>
+          <h1><span data-lang="pt">Conectando a <span class="accent">Saúde</span> ao poder dos dados.</span><span data-lang="en">Connecting <span class="accent">healthcare</span> with the power of data.</span></h1>
+          <p class="hero-copy" data-lang="pt">Sou farmacêutica e estou ampliando minha atuação para Dados, Desenvolvimento de Sistemas e Inteligência Artificial. Meu foco é transformar problemas reais da saúde em análises, automações e soluções digitais úteis.</p>
+          <p class="hero-copy" data-lang="en">I am a pharmacist expanding my work into data, software development, and artificial intelligence. My focus is turning real healthcare challenges into useful analysis, automation, and digital solutions.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projetos"><span data-lang="pt">Explorar projetos ↗</span><span data-lang="en">Explore projects ↗</span></a>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/thaisdelimaarruda/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+        <div class="profile-card" aria-label="Foto profissional de Thais Arruda">
+          <img class="profile-photo" src="assets/foto-thais.png" alt="Thais Arruda em ambiente de escritório">
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"><span data-lang="pt">01 / Sobre mim</span><span data-lang="en">01 / About me</span></div>
+          <h2><span data-lang="pt">Experiência em saúde. Curiosidade por tecnologia. Foco em impacto.</span><span data-lang="en">Healthcare experience. Curiosity for technology. Focus on impact.</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-lang="pt">Minha trajetória começou na Farmácia, com formação e experiência em contextos hospitalares e clínicos. Hoje, uno esse conhecimento à construção de competências em programação, análise de dados e inteligência artificial.</p>
+            <p data-lang="pt">No trabalho com melhoria de processos hospitalares, indicadores e qualificação da assistência, percebi como dados bem estruturados e ferramentas digitais podem apoiar decisões, dar visibilidade a problemas e facilitar o trabalho das equipes.</p>
+            <p data-lang="pt">Estou desenvolvendo projetos práticos que conectam minha experiência em saúde ao universo da tecnologia, priorizando soluções compreensíveis, responsáveis e orientadas a necessidades reais.</p>
+            <p data-lang="en">My career began in pharmacy, with education and experience in hospital and clinical settings. I am now combining that background with developing skills in programming, data analysis, and artificial intelligence.</p>
+            <p data-lang="en">Through hospital process improvement, indicators, and quality-of-care work, I have seen how well-structured data and digital tools can support decisions, make problems visible, and help teams work more effectively.</p>
+            <p data-lang="en">I am building practical projects that connect my healthcare experience with technology, focusing on understandable, responsible solutions to real needs.</p>
+          </div>
+          <div class="principles">
+            <div class="principle"><div class="number">01</div><div><strong><span data-lang="pt">Conhecimento de domínio</span><span data-lang="en">Domain knowledge</span></strong><span data-lang="pt">Farmácia, processos hospitalares, indicadores e segurança do paciente.</span><span data-lang="en">Pharmacy, hospital processes, indicators, and patient safety.</span></div></div>
+            <div class="principle"><div class="number">02</div><div><strong><span data-lang="pt">Pensamento analítico</span><span data-lang="en">Analytical thinking</span></strong><span data-lang="pt">Organizar informações para apoiar análises e decisões.</span><span data-lang="en">Organizing information to support analysis and decisions.</span></div></div>
+            <div class="principle"><div class="number">03</div><div><strong><span data-lang="pt">Aprendizagem aplicada</span><span data-lang="en">Applied learning</span></strong><span data-lang="pt">Aprender construindo, documentando e aprimorando projetos.</span><span data-lang="en">Learning by building, documenting, and improving projects.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="projetos">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"><span data-lang="pt">02 / Projetos selecionados</span><span data-lang="en">02 / Selected projects</span></div>
+          <h2><span data-lang="pt">Tecnologia aplicada a desafios reais.</span><span data-lang="en">Technology applied to real-world challenges.</span></h2>
+          <p class="section-intro" data-lang="pt">Projetos em desenvolvimento que refletem a conexão entre saúde, dados, automação e IA. As descrições serão detalhadas conforme cada repositório e demonstração forem organizados.</p>
+          <p class="section-intro" data-lang="en">Projects in progress reflecting the connection between healthcare, data, automation, and AI. Details will be expanded as each repository and demo is organized.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">▥</div><span class="status" data-lang="pt">Em desenvolvimento</span><span class="status" data-lang="en">In progress</span></div>
+            <h3><span data-lang="pt">Dashboards e indicadores hospitalares</span><span data-lang="en">Hospital dashboards & indicators</span></h3>
+            <p data-lang="pt">Estruturação de indicadores e visualizações para acompanhar conformidade, evolução de setores e oportunidades de melhoria em processos hospitalares, no contexto do RHP/FAHosp.</p>
+            <p data-lang="en">Structuring indicators and visualizations to monitor compliance, sector progress, and improvement opportunities in hospital processes, in the RHP/FAHosp context.</p>
+            <div class="tags"><span class="tag">Dashboards</span><span class="tag">KPIs</span><span class="tag">Saúde / Healthcare</span></div>
+            <a class="project-link" href="https://github.com/thaislarruda" target="_blank" rel="noopener noreferrer"><span data-lang="pt">Ver perfil no GitHub ↗</span><span data-lang="en">View GitHub profile ↗</span></a>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">＋</div><span class="status" data-lang="pt">Em desenvolvimento</span><span class="status" data-lang="en">In progress</span></div>
+            <h3><span data-lang="pt">Controle de antimicrobianos e farmacoeconomia</span><span data-lang="en">Antimicrobial tracking & pharmacoeconomics</span></h3>
+            <p data-lang="pt">Planilha de apoio ao acompanhamento de antimicrobianos, estoque, custos e intervenções farmacêuticas, com foco em organização de dados e visibilidade de possíveis economias.</p>
+            <p data-lang="en">A tool to support antimicrobial tracking, inventory, costs, and pharmaceutical interventions, focusing on data organization and visibility into potential savings.</p>
+            <div class="tags"><span class="tag">Excel / Sheets</span><span class="tag">Farmácia</span><span class="tag">Indicadores</span></div>
+            <a class="project-link" href="https://github.com/thaislarruda" target="_blank" rel="noopener noreferrer"><span data-lang="pt">Ver perfil no GitHub ↗</span><span data-lang="en">View GitHub profile ↗</span></a>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">⟳</div><span class="status" data-lang="pt">Automação</span><span class="status" data-lang="en">Automation</span></div>
+            <h3><span data-lang="pt">Automação de processos de trabalho</span><span data-lang="en">Workflow automation</span></h3>
+            <p data-lang="pt">Iniciativas para automatizar tarefas operacionais, incluindo organização de listas de presença e apoio a rotinas do projeto, explorando ferramentas como Google Sheets e Apps Script.</p>
+            <p data-lang="en">Initiatives to automate operational tasks, including attendance-list organization and project workflows, exploring tools such as Google Sheets and Apps Script.</p>
+            <div class="tags"><span class="tag">Google Sheets</span><span class="tag">Apps Script</span><span class="tag">Processos</span></div>
+            <a class="project-link" href="https://github.com/thaislarruda" target="_blank" rel="noopener noreferrer"><span data-lang="pt">Ver perfil no GitHub ↗</span><span data-lang="en">View GitHub profile ↗</span></a>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">✳</div><span class="status" data-lang="pt">Exploração aplicada</span><span class="status" data-lang="en">Applied exploration</span></div>
+            <h3><span data-lang="pt">IA e assistentes para a Saúde</span><span data-lang="en">AI and healthcare assistants</span></h3>
+            <p data-lang="pt">Estudos e protótipos para explorar IA generativa, automação e assistentes de apoio a processos de saúde. O desenho considera limites de uso, supervisão humana e segurança do paciente.</p>
+            <p data-lang="en">Studies and prototypes exploring generative AI, automation, and assistants for healthcare workflows. The approach considers usage limits, human oversight, and patient safety.</p>
+            <div class="tags"><span class="tag">IA / AI</span><span class="tag">Prompting</span><span class="tag">Segurança</span></div>
+            <a class="project-link" href="https://github.com/thaislarruda" target="_blank" rel="noopener noreferrer"><span data-lang="pt">Ver perfil no GitHub ↗</span><span data-lang="en">View GitHub profile ↗</span></a>
+          </article>
+        </div>
+        <p class="notice" data-lang="pt">Nota: os links direcionam ao perfil geral do GitHub enquanto os repositórios específicos são selecionados e publicados. Não foram atribuídos resultados quantitativos ainda não validados.</p>
+        <p class="notice" data-lang="en">Note: links currently point to the main GitHub profile while specific repositories are selected and published. No unverified quantitative results have been claimed.</p>
+      </div>
+    </section>
+
+    <section id="trajetoria">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"><span data-lang="pt">03 / Trajetória</span><span data-lang="en">03 / Journey</span></div>
+          <h2><span data-lang="pt">Uma transição construída a partir da experiência.</span><span data-lang="en">A transition built on experience.</span></h2>
+          <p class="section-intro" data-lang="pt">A mudança de área não começa do zero: aproveita conhecimento de saúde e amplia as ferramentas para resolver problemas.</p>
+          <p class="section-intro" data-lang="en">A career transition does not start from scratch: it builds on healthcare knowledge and expands the tools used to solve problems.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-label"><span data-lang="pt">Experiência profissional</span><span data-lang="en">Professional experience</span></div>
+            <h3><span data-lang="pt">Farmácia e qualificação de processos em saúde</span><span data-lang="en">Pharmacy and healthcare process improvement</span></h3>
+            <p data-lang="pt">Atuação como farmacêutica, com formação em Farmácia Hospitalar e Clínica, Oncologia e Hematologia e experiência relacionada à melhoria de processos, indicadores e qualificação da assistência.</p>
+            <p data-lang="en">Pharmacy background, with postgraduate education in Hospital and Clinical Pharmacy, Oncology, and Hematology, and experience related to process improvement, indicators, and quality of care.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label"><span data-lang="pt">Aplicação no trabalho</span><span data-lang="en">Applied in professional work</span></div>
+            <h3><span data-lang="pt">Dados e automação para apoiar a gestão</span><span data-lang="en">Data and automation to support management</span></h3>
+            <p data-lang="pt">Desenvolvimento de planilhas, indicadores, dashboards e automações para organizar informações e apoiar rotinas e projetos na área da saúde.</p>
+            <p data-lang="en">Building spreadsheets, indicators, dashboards, and automations to organize information and support healthcare workflows and projects.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label"><span data-lang="pt">Em desenvolvimento</span><span data-lang="en">Currently developing</span></div>
+            <h3><span data-lang="pt">Programação, engenharia de dados e IA</span><span data-lang="en">Programming, data engineering, and AI</span></h3>
+            <p data-lang="pt">Estudos e projetos práticos em programação, análise de dados, desenvolvimento de sistemas e inteligência artificial, com foco em aplicações na saúde.</p>
+            <p data-lang="en">Studies and hands-on projects in programming, data analysis, software development, and artificial intelligence, focused on healthcare applications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencias" style="background:#eef3f8">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"><span data-lang="pt">04 / Áreas de atuação</span><span data-lang="en">04 / Areas of focus</span></div>
+          <h2><span data-lang="pt">Competências em construção e experiência de domínio.</span><span data-lang="en">Developing technical skills and domain expertise.</span></h2>
+          <p class="section-intro" data-lang="pt">A seção será refinada com seus certificados e a descrição precisa do nível de domínio em cada ferramenta.</p>
+          <p class="section-intro" data-lang="en">This section will be refined using your certificates and a precise description of proficiency in each tool.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-box"><h3><span data-lang="pt">Saúde</span><span data-lang="en">Healthcare</span></h3><p>Farmácia hospitalar, indicadores, segurança do paciente, processos assistenciais.</p></div>
+          <div class="skill-box"><h3>Dados</h3><p>Organização de bases, análise exploratória, indicadores e visualização de informações.</p></div>
+          <div class="skill-box"><h3>Desenvolvimento</h3><p>Estudos em lógica de programação, Python, SQL e desenvolvimento de sistemas.</p></div>
+          <div class="skill-box"><h3>IA & automação</h3><p>IA generativa, engenharia de prompts, automação de tarefas e desenho de protótipos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker"><span data-lang="pt">05 / Formação e certificados</span><span data-lang="en">05 / Education & certificates</span></div>
+          <h2><span data-lang="pt">Aprendizagem contínua, conectando saúde e tecnologia.</span><span data-lang="en">Continuous learning at the intersection of healthcare and technology.</span></h2>
+          <p class="section-intro" data-lang="pt">Seleção inicial baseada nos certificados enviados. A lista poderá ser ampliada e organizada por trilha conforme validarmos datas, cargas horárias e links de comprovação.</p>
+          <p class="section-intro" data-lang="en">An initial selection based on the certificates provided. This list can be expanded and organized by learning path as dates, course hours, and verification links are confirmed.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-box"><h3><span data-lang="pt">Programação</span><span data-lang="en">Programming</span></h3><p>Introdução aos Algoritmos e à Programação Básica com Java — IFMG, 40h; Lógica de Programação — SoulCode Academy, 40h; Python — Santander Academy, 8h.</p></div>
+          <div class="skill-box"><h3><span data-lang="pt">Saúde digital e IA</span><span data-lang="en">Digital health & AI</span></h3><p>Inteligência Artificial na Saúde — UNA-SUS/UFMA, 15h; Introdução à Saúde Digital — UNA-SUS/UFMA, 30h.</p></div>
+          <div class="skill-box"><h3><span data-lang="pt">Dados e visualização</span><span data-lang="en">Data & visualization</span></h3><p>Análise de Dados para a Vigilância em Saúde — ITpS/Abrasco/UFSC, 45h; Construção de Dashboards para Monitoramento de Indicadores de Saúde — 15h; Produção Automatizada de Relatórios na Vigilância em Saúde — 15h.</p></div>
+          <div class="skill-box"><h3><span data-lang="pt">Qualidade e avaliação</span><span data-lang="en">Quality & assessment</span></h3><p>Fundamentos do Sistema de Gestão da Qualidade no SNVS — 50h; Introdução à Avaliação de Tecnologias em Saúde — 20h.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <div class="section-kicker"><span data-lang="pt">06 / Contato</span><span data-lang="en">06 / Contact</span></div>
+            <h2><span data-lang="pt">Vamos conectar ideias e projetos?</span><span data-lang="en">Let's connect ideas and projects.</span></h2>
+            <p data-lang="pt">Tenho interesse em oportunidades e colaborações que conectem saúde, dados, desenvolvimento de sistemas e inteligência artificial.</p>
+            <p data-lang="en">I am interested in opportunities and collaborations connecting healthcare, data, software development, and artificial intelligence.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:tl-arruda@uol.com.br">✉ tl-arruda@uol.com.br</a>
+            <a href="https://github.com/thaislarruda" target="_blank" rel="noopener noreferrer">⌘ GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/thaisdelimaarruda/" target="_blank" rel="noopener noreferrer">in LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Thais Arruda</span>
+      <span class="mono"><span data-lang="pt">Saúde + Dados + Tecnologia</span><span data-lang="en">Healthcare + Data + Technology</span></span>
+    </div>
+  </footer>
+  <script>
+    const langToggle = document.getElementById('langToggle');
+    const menuToggle = document.getElementById('menuToggle');
+    const navlinks = document.getElementById('navlinks');
+    langToggle.addEventListener('click', () => {
+      const isEnglish = document.body.classList.toggle('english');
+      document.documentElement.lang = isEnglish ? 'en' : 'pt-BR';
+      langToggle.textContent = isEnglish ? 'PT / EN' : 'EN / PT';
+    });
+    menuToggle.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navlinks.classList.remove('open')));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
